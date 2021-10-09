@@ -16,9 +16,26 @@
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_notifications" />
 
+    <!--  New for the App  -->
+
     <item
-        android:id="@+id/navigation_test"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_test" />
+        android:id="@+id/navigation_newEntry"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_newProgressPicture"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
 
 </menu>
