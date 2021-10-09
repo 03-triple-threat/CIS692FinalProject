@@ -24,8 +24,26 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
-        android:id="@+id/navigation_test"
+        android:id="@+id/navigation_newEntry"
         android:name="com.example.cis_692_final_project.ui.notifications.NotificationsFragment"
-        android:label="@string/title_test"
-        tools:layout="@layout/fragment_test" />
+        android:label="@string/title_newEntry"
+        tools:layout="@layout/fragment_new_entry" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.example.cis_692_final_project.ui.notifications.NotificationsFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/navigation_newProgressPicture"
+        android:name="com.example.cis_692_final_project.ui.notifications.NotificationsFragment"
+        android:label="@string/title_newProgressPicture"
+        tools:layout="@layout/fragment_new_progress_picture" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.cis_692_final_project.ui.notifications.NotificationsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
