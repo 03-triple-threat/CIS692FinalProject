@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.cis_692_final_project.R;
 import com.example.cis_692_final_project.databinding.FragmentNewEntryBinding;
 
 public class NewEntryFragment extends Fragment {
