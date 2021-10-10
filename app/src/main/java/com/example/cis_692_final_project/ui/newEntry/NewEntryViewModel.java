@@ -10,7 +10,7 @@ public class NewEntryViewModel extends ViewModel {
 
     public NewEntryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is new entry fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

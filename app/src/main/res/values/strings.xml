@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">CIS-692-Final-Project</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-<!--    <string name="title_test">Test</string>-->
     <string name="title_newEntry">New Entry</string>
     <string name="title_history">History</string>
-    <string name="title_newProgressPicture">New Progress Picture</string>
+    <string name="title_newProgressPicture">New\nProgress\nPicture<b/></string>
     <string name="title_settings">Settings</string>
+
+    <!-- Adding Button Strings based on Mockups  -->
+    <string name="summary_current_weight_label">Current Weight</string>
+    <string name="summary_target_weight_label">Target Weight</string>
+    <string name="summary_current_date_label">Current Date</string>
+    <string name="summary_target_date_label">Target Date</string>
+
+    <!--  Adding Input Strings based on Mockups  -->
+    <string name="summary_current_weight_input_hint">Enter Current Weight</string>
+    <string name="summary_current_date_input_hint">Enter Today\'s Date</string>
+    <string name="summary_target_weight_amt"> AMOUNT </string>
+    <string name="summary_target_date_selected"> DATE </string>
 </resources>

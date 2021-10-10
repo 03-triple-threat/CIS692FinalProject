@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,4 +33,120 @@
         app:layout_constraintVertical_bias="1.0"
         app:navGraph="@navigation/mobile_navigation" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/label_currentWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/purple_200"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/summary_current_weight_label"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/input_currentWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/label_currentWeight"
+        android:gravity="center"
+        android:hint="@string/summary_current_weight_input_hint"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/label_currentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_currentWeight"
+        android:layout_alignRight="@id/label_currentWeight"
+        android:layout_alignLeft="@id/label_currentWeight"
+        android:layout_marginTop="20dp"
+        android:background="@color/purple_200"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/summary_current_date_label"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/input_current_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_currentWeight"
+        android:layout_alignRight="@id/input_currentWeight"
+        android:layout_alignLeft="@id/input_currentWeight"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/label_currentDate"
+        android:gravity="center"
+        android:hint="@string/summary_current_date_input_hint"
+        android:inputType="date"
+        android:padding="10dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/label_targetWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_currentDate"
+        android:layout_alignRight="@id/label_currentWeight"
+        android:layout_alignLeft="@id/label_currentWeight"
+        android:layout_marginTop="20dp"
+        android:background="@color/purple_200"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/summary_target_weight_label"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/label_target_weight_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_currentDate"
+        android:layout_alignRight="@id/input_currentWeight"
+        android:layout_alignLeft="@id/input_currentWeight"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/label_targetWeight"
+        android:gravity="center"
+        android:hint="@string/summary_target_weight_amt"
+        android:padding="10dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/label_targetDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_targetWeight"
+        android:layout_alignRight="@id/label_currentWeight"
+        android:layout_alignLeft="@id/label_currentWeight"
+        android:layout_marginTop="20dp"
+        android:background="@color/purple_200"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/summary_target_date_label"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/label_target_date_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_targetWeight"
+        android:layout_alignRight="@id/input_currentWeight"
+        android:layout_alignLeft="@id/input_currentWeight"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/label_targetDate"
+        android:gravity="center"
+        android:hint="@string/summary_target_date_selected"
+        android:padding="10dp"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>
