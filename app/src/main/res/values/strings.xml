@@ -2,7 +2,7 @@
     <string name="app_name">CIS-692-Final-Project</string>
     <string name="title_newEntry">New Entry</string>
     <string name="title_history">History</string>
-    <string name="title_newProgressPicture">New\nProgress\nPicture<b/></string>
+    <string name="title_newProgressPicture">New\nProgress\nPicture<b /></string>
     <string name="title_settings">Settings</string>
 
     <!-- Adding Button Strings based on Mockups  -->
@@ -16,4 +16,10 @@
     <string name="summary_current_date_input_hint">Enter Today\'s Date</string>
     <string name="summary_target_weight_amt"> AMOUNT </string>
     <string name="summary_target_date_selected"> DATE </string>
+
+    <!--  Adding Label Strings for New Entry Screen  -->
+    <string name="new_entry_current_weight_label"> New Weight Entry </string>
+    <string name="new_entry_current_date_label"> New Date Entry </string>
+    <string name="new_entry_current_weight_input_hint">Enter Current Weight</string>
+    <string name="new_entry_current_date_input_hint">Enter Current Date</string>
 </resources>
