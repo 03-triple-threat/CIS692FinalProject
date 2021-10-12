@@ -33,8 +33,9 @@
         app:layout_constraintVertical_bias="1.0"
         app:navGraph="@navigation/mobile_navigation" />
 
+    <!--  Current Weight Label DONE  -->
     <TextView
-        android:id="@+id/label_currentWeight"
+        android:id="@+id/label_main_current_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -42,110 +43,117 @@
         android:background="@color/purple_200"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/summary_current_weight_label"
+        android:text="@string/main_current_weight_label"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/input_currentWeight"
+    <!--  Current Weight Number DONE  -->
+    <TextView
+        android:id="@+id/label_current_weight_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
-        android:layout_toRightOf="@id/label_currentWeight"
+        android:layout_toRightOf="@id/label_main_current_weight"
         android:gravity="center"
-        android:hint="@string/summary_current_weight_input_hint"
-        android:inputType="numberDecimal"
+        android:text="@string/main_current_weight_label_number"
         android:padding="10dp"
         android:textSize="20sp" />
 
+    <!-- BMI Label  DONE  -->
     <TextView
-        android:id="@+id/label_currentDate"
+        android:id="@+id/label_main_body_mass_index"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_currentWeight"
-        android:layout_alignRight="@id/label_currentWeight"
-        android:layout_alignLeft="@id/label_currentWeight"
+        android:layout_below="@id/label_main_current_weight"
+        android:layout_alignRight="@id/label_main_current_weight"
+        android:layout_alignLeft="@id/label_main_current_weight"
         android:layout_marginTop="20dp"
         android:background="@color/purple_200"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/summary_current_date_label"
+        android:text="@string/main_current_body_max_index_label"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/input_current_date"
+    <!-- BMI number DONE -->
+    <TextView
+        android:id="@+id/label_main_body_mass_index_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_currentWeight"
-        android:layout_alignRight="@id/input_currentWeight"
-        android:layout_alignLeft="@id/input_currentWeight"
+        android:layout_below="@id/label_current_weight_number"
+        android:layout_alignRight="@id/label_current_weight_number"
+        android:layout_alignLeft="@id/label_current_weight_number"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/label_currentDate"
+        android:layout_toRightOf="@id/label_main_body_mass_index"
         android:gravity="center"
-        android:hint="@string/summary_current_date_input_hint"
-        android:inputType="date"
+        android:text="@string/main_current_body_max_index_number"
         android:padding="10dp"
         android:textSize="20sp" />
 
+    <!-- Avg Weekly Loss Label DONE -->
     <TextView
-        android:id="@+id/label_targetWeight"
+        android:id="@+id/label_avg_weekly_weight_loss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_currentDate"
-        android:layout_alignRight="@id/label_currentWeight"
-        android:layout_alignLeft="@id/label_currentWeight"
+        android:layout_below="@id/label_main_body_mass_index"
+        android:layout_alignRight="@id/label_main_current_weight"
+        android:layout_alignLeft="@id/label_main_current_weight"
         android:layout_marginTop="20dp"
         android:background="@color/purple_200"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/summary_target_weight_label"
+        android:text="@string/main_avg_weekly_weight_loss_label"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
+    <!-- Avg Weekly Loss Number DONE  -->
     <TextView
-        android:id="@+id/label_target_weight_amount"
+        android:id="@+id/label_avg_weekly_weight_loss_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_currentDate"
-        android:layout_alignRight="@id/input_currentWeight"
-        android:layout_alignLeft="@id/input_currentWeight"
+        android:layout_below="@id/label_main_body_mass_index_number"
+        android:layout_alignBottom="@id/label_avg_weekly_weight_loss"
+        android:layout_alignRight="@id/label_current_weight_number"
+        android:layout_alignLeft="@id/label_current_weight_number"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/label_targetWeight"
+        android:layout_toRightOf="@id/label_avg_weekly_weight_loss"
         android:gravity="center"
-        android:hint="@string/summary_target_weight_amt"
+        android:text="@string/main_avg_weekly_weight_loss_label_number"
         android:padding="10dp"
         android:textSize="20sp" />
 
+    <!-- Weight loss to date label DONE -->
     <TextView
-        android:id="@+id/label_targetDate"
+        android:id="@+id/label_total_weight_loss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_targetWeight"
-        android:layout_alignRight="@id/label_currentWeight"
-        android:layout_alignLeft="@id/label_currentWeight"
+        android:layout_below="@id/label_avg_weekly_weight_loss"
+        android:layout_alignRight="@id/label_main_current_weight"
+        android:layout_alignLeft="@id/label_main_current_weight"
         android:layout_marginTop="20dp"
         android:background="@color/purple_200"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/summary_target_date_label"
+        android:text="@string/main_total_weight_loss_label"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
+    <!-- Weight loss to date number DONE -->
     <TextView
-        android:id="@+id/label_target_date_selected"
+        android:id="@+id/label_total_weight_loss_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_targetWeight"
-        android:layout_alignRight="@id/input_currentWeight"
-        android:layout_alignLeft="@id/input_currentWeight"
+        android:layout_below="@id/label_avg_weekly_weight_loss_number"
+        android:layout_alignTop="@id/label_total_weight_loss"
+        android:layout_alignRight="@id/label_current_weight_number"
+        android:layout_alignLeft="@id/label_current_weight_number"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/label_targetDate"
+        android:layout_toRightOf="@id/label_total_weight_loss"
         android:gravity="center"
-        android:hint="@string/summary_target_date_selected"
+        android:text="@string/main_total_weight_loss_label_number"
         android:padding="10dp"
         android:textSize="20sp" />
 
