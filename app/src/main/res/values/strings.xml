@@ -5,11 +5,15 @@
     <string name="title_newProgressPicture">New\nProgress\nPicture<b /></string>
     <string name="title_settings">Settings</string>
 
-    <!-- Adding Button Strings based on Mockups  -->
-    <string name="summary_current_weight_label">Current Weight</string>
-    <string name="summary_target_weight_label">Target Weight</string>
-    <string name="summary_current_date_label">Current Date</string>
-    <string name="summary_target_date_label">Target Date</string>
+    <!--  Main Screen DONE -->
+    <string name="main_current_weight_label">Current Weight</string>
+    <string name="main_current_weight_label_number">WEIGHT AMT</string>
+    <string name="main_current_body_max_index_label">Body Mass Index</string>
+    <string name="main_current_body_max_index_number">BMI NUMBER</string>
+    <string name="main_avg_weekly_weight_loss_label">Avg Weekly Weight Loss</string>
+    <string name="main_avg_weekly_weight_loss_label_number">AMT LOSS</string>
+    <string name="main_total_weight_loss_label">Total Weight Loss</string>
+    <string name="main_total_weight_loss_label_number">WEIGHT AMT</string>
 
     <!--  Adding Input Strings based on Mockups  -->
     <string name="summary_current_weight_input_hint">Enter Current Weight</string>
@@ -22,4 +26,18 @@
     <string name="new_entry_current_date_label"> New Date Entry </string>
     <string name="new_entry_current_weight_input_hint">Enter Current Weight</string>
     <string name="new_entry_current_date_input_hint">Enter Current Date</string>
+
+    <!--  Adding GUI components to the Settings Screen  -->
+    <string name="settings_starting_weight_label">Starting Weight</string>
+    <string name="settings_starting_weight_input_hint">Enter Starting Weight</string>
+    <string name="settings_starting_date_label">Starting Date</string>
+    <string name="settings_starting_date_input_hint">Enter Starting Date</string>
+    <string name="settings_target_weight_label">Target Weight</string>
+    <string name="settings_target_date_input_hint">Enter Target Date</string>
+    <string name="settings_target_weight_input_hint">Enter Target Weight</string>
+    <string name="settings_select_gender_label">Select Gender</string>
+    <string name="settings_gender_female_option">Female</string>
+    <string name="settings_gender_male_option">Male</string>
+    <string name="settings_gender_prefer_not_to_answer_option">Prefer Not to Answer</string>
+
 </resources>
