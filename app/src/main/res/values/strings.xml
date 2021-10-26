@@ -39,5 +39,9 @@
     <string name="settings_gender_female_option">Female</string>
     <string name="settings_gender_male_option">Male</string>
     <string name="settings_gender_prefer_not_to_answer_option">Prefer Not to Answer</string>
+    <string name="settings_height_label">Enter Height</string>
+    <string name="settings_height_input_hint">Enter Height</string>
+    <string name="settings_save_settings_button">Save Settings</string>
+    <string name="settings_discard_settings_button">Discard Settings</string>
 
 </resources>
