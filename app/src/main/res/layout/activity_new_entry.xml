@@ -85,7 +85,8 @@
         android:layout_marginLeft="20dp"
         android:background="@color/purple_200"
         android:textSize="20sp"
-        android:text="Cancel"/>
+        android:text="Cancel"
+        android:onClick="goBack"/>
 
 
 </RelativeLayout>
