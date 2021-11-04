@@ -15,6 +15,8 @@
     <string name="main_total_weight_loss_label">Total Weight Loss</string>
     <string name="main_total_weight_loss_label_number">WEIGHT AMT</string>
     <string name="main_add_new_entry_button">Add New Entry</string>
+    <string name="main_update_settings_button">Update Settings</string>
+    <string name="main_view_history_button">View History</string>
 
     <!--  Adding Input Strings based on Mockups  -->
     <string name="summary_current_weight_input_hint">Enter Current Weight</string>

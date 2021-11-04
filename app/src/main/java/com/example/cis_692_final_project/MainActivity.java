@@ -12,45 +12,40 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-//import com.example.cis_692_final_project.databinding.ActivityMainBinding;
-
 public class MainActivity extends AppCompatActivity {
-
-//    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        binding = ActivityMainBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
-//
-//        BottomNavigationView navView = findViewById(R.id.nav_view);
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                 R.id.navigation_newEntry, R.id.navigation_newProgressPicture,
-//                R.id.navigation_history, R.id.navigation_settings)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-//    @Override
-//    protected void onCreate ( Bundle savedInstanceState ) {
-//        super.onCreate( savedInstanceState );
-//        setContentView( R.layout.activity_main);
-////        setContentView( R.layout.activity_new_entry);
-////        setContentView( R.layout.activity_history);
-////        setContentView(R.layout.activity_settings);
-//    }
-
+    /**
+     * Method to navigate to the New Entry Screen
+     */
     public void enterData (View v) {
         Intent myIntent = new Intent(this, NewEntryActivity.class);
         this.startActivity(myIntent);
     }
 
+    /**
+     * Method to navigate to the Settings Screen
+     */
+    public void updateSettings (View v) {
+        Intent myIntent = new Intent( this, SettingsActivity.class);
+        this.startActivity(myIntent);
+    }
+
+    /**
+     * Method to navigate to the History Screen
+     */
+    public void viewHistory (View v) {
+        Intent myIntent = new Intent( this, HistoryActivity.class);
+        this.startActivity(myIntent);
+    }
+
+    /**
+     * TODO - add method for refreshing stats on screen
+     */
 }

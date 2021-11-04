@@ -157,15 +157,40 @@
         android:padding="10dp"
         android:textSize="20sp" />
 
+    <!--  Navigation Buttons   -->
     <Button
+        android:id="@+id/button_add_new_entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/label_total_weight_loss"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
         android:gravity="center_horizontal"
         android:text="@string/main_add_new_entry_button"
         android:onClick="enterData"/>
+
+    <Button
+        android:id="@+id/button_update_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_total_weight_loss_number"
+        android:layout_toRightOf="@id/button_add_new_entry"
+        android:layout_alignTop="@id/button_add_new_entry"
+        android:layout_marginLeft="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/main_update_settings_button"
+        android:onClick="updateSettings"/>
+
+    <Button
+        android:id="@+id/button_view_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_add_new_entry"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/main_view_history_button"
+        android:onClick="viewHistory"/>
 
     <!--  Navigation Bar  -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
