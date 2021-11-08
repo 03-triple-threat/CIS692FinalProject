@@ -192,13 +192,4 @@
         android:text="@string/main_view_history_button"
         android:onClick="viewHistory"/>
 
-    <!--  Navigation Bar  -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_bar_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemBackground="@color/teal_700"/>
-
 </RelativeLayout>
