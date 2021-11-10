@@ -101,28 +101,4 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
         return String.valueOf(avg);
     }
-
-    public String getLastEntry() {
-        System.out.println("LOGDEBUG #1");
-        String sqlQuery = "select * from " + TABLE_ENTRIES + " order by " + WEIGHT_ENTRY_INPUT;
-        sqlQuery += " desc limit 1";
-
-        System.out.println("LOGDEBUG #2");
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(sqlQuery, null);
-        System.out.println("LOGDEBUG #3");
-
-        int lastEntry = 0;
-
-        if (cursor.moveToFirst()) {
-            lastEntry = (int) Float.parseFloat(cursor.getString(0));
-        }
-
-        System.out.println("LOGDEBUG #4: " + lastEntry);
-
-        db.close();
-
-        return String.valueOf(lastEntry);
-    }
 }

@@ -27,20 +27,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        updateView();
+    }
+
+    @Override
     public void onRestart() {
         super.onRestart();
         updateView();
     }
 
     public void updateView() {
-        // update to grab the latest entry -- todo: work on sql query; need to return the last entry in table
-//        TextView currentWeightTotalText = (TextView) findViewById(R.id.label_current_weight_number);
-//        System.out.print("************************* " + dbManager.getLastEntry());
-//        currentWeightTotalText.setText( dbManager.getLastEntry());
+
+        System.out.println(dbManager.selectAll());
+
+        // update to grab the latest entry
+        TextView currentWeightText = (TextView) findViewById(R.id.label_current_weight_number);
+        currentWeightText.setText(String.valueOf((float) dbManager.selectAll().get(dbManager.selectAll().size()-1).getInputWeight()).trim() + " lbs");
+
+        // update the BMI calculation - todo: write this logic
+//        TextView bmiCalcText = (TextView) findViewById(R.id.label_main_body_mass_index_number);
+//        bmiCalcText.setText();
 
         // update the avg weekly loss - todo: work on logic for avg weekly weight loss
         TextView avgWeightLossTotalText = (TextView) findViewById(R.id.label_avg_weekly_weight_loss_number);
-        avgWeightLossTotalText.setText( dbManager.getAverage());
+        avgWeightLossTotalText.setText( dbManager.getAverage() + " lbs");
+
+        // update total weight lost
+        TextView totalWeightLostText = (TextView) findViewById(R.id.label_total_weight_loss_number);
+        totalWeightLostText.setText((((float) dbManager.selectAll().get(dbManager.selectAll().size()-1).getInputWeight() - (float) dbManager.selectAll().get(0).getInputWeight()) * -1) + " lbs");
     }
 
     /**
@@ -66,8 +82,4 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent( this, HistoryActivity.class);
         this.startActivity(myIntent);
     }
-
-    /**
-     * TODO - add method for refreshing stats on screen
-     */
 }

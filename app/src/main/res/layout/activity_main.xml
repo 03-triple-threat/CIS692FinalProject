@@ -150,7 +150,6 @@
         android:layout_alignTop="@id/label_total_weight_loss"
         android:layout_alignRight="@id/label_current_weight_number"
         android:layout_alignLeft="@id/label_current_weight_number"
-        android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/label_total_weight_loss"
         android:gravity="center"
         android:text="@string/main_total_weight_loss_label_number"

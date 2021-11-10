@@ -3,6 +3,7 @@ package com.example.cis_692_final_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -50,7 +51,6 @@ public class NewEntryActivity extends AppCompatActivity {
         //Retrieves input data
         EditText weightEntryNumberEditText = (EditText) findViewById(R.id.input_new_entry_weight);
         EditText weightEntryDateEditText = (EditText) findViewById(R.id.input_new_entry_date);
-//        EditText avgWeightLossTotalText = (EditText) findViewById(R.id.label_avg_weekly_weight_loss_number);
         String weightEntryNumber = weightEntryNumberEditText.getText().toString();
         String weightEntryDate = weightEntryDateEditText.getText().toString();
 
@@ -60,23 +60,21 @@ public class NewEntryActivity extends AppCompatActivity {
             NewEntry entry = new NewEntry(0, weightEntry, weightEntryDate);
             dbManager.insert(entry);
             Toast.makeText(this, "Entry Added", Toast.LENGTH_SHORT).show();
+
+            /**
+             * updates cancel button text to reflect better option for user -- entry is added at this point,
+             * so no "Cancel Entry" option is needed. Instead user can navigate back to summary
+             */
+            Button cancelButtonText = findViewById(R.id.button_new_entry_cancel);
+            cancelButtonText.setText("View Summary Page");
+            cancelButtonText.setTextSize(12);
         } catch (Exception e) {
             Toast.makeText(this, "Entry NOT Added", Toast.LENGTH_LONG).show();
         }
 
-        //clear data
+        //clears input data
         weightEntryNumberEditText.setText("");
         weightEntryDateEditText.setText("");
 
-        //update stats for summary screen
-//        avgWeightLossTotalText.setText((int) dbManager.getAverage());
-//        avgWeightLossTotalText.setText("THIS UPDATED!");
     }
-
-
-
-    /**
-     *
-     * TODO - create method for calculating new stats based on latest entry
-     */
 }
