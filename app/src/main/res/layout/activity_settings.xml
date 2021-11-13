@@ -240,7 +240,7 @@
         android:layout_marginLeft="10dp"
         android:paddingLeft="5dp"
         android:background="@color/purple_200"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:text="@string/settings_discard_settings_button"/>
 
 

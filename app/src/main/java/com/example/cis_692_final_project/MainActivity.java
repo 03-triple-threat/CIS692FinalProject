@@ -40,23 +40,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateView() {
 
-        System.out.println(dbManager.selectAll());
+        try {
+            System.out.println(dbManager.selectAll());
 
-        // update to grab the latest entry
-        TextView currentWeightText = (TextView) findViewById(R.id.label_current_weight_number);
-        currentWeightText.setText(String.valueOf((float) dbManager.selectAll().get(dbManager.selectAll().size()-1).getInputWeight()).trim() + " lbs");
+            // update to grab the latest entry
+            TextView currentWeightText = (TextView) findViewById(R.id.label_current_weight_number);
+            currentWeightText.setText(String.valueOf((float) dbManager.selectAll().get(dbManager.selectAll().size() - 1).getInputWeight()).trim() + " lbs");
 
-        // update the BMI calculation - todo: write this logic
+            // update the BMI calculation - todo: write this logic
 //        TextView bmiCalcText = (TextView) findViewById(R.id.label_main_body_mass_index_number);
 //        bmiCalcText.setText();
 
-        // update the avg weekly loss - todo: work on logic for avg weekly weight loss
-        TextView avgWeightLossTotalText = (TextView) findViewById(R.id.label_avg_weekly_weight_loss_number);
-        avgWeightLossTotalText.setText( dbManager.getAverage() + " lbs");
+            // update the avg weekly loss - todo: work on logic for avg weekly weight loss
+            TextView avgWeightLossTotalText = (TextView) findViewById(R.id.label_avg_weekly_weight_loss_number);
+            avgWeightLossTotalText.setText(dbManager.getAverage() + " lbs");
 
-        // update total weight lost
-        TextView totalWeightLostText = (TextView) findViewById(R.id.label_total_weight_loss_number);
-        totalWeightLostText.setText((((float) dbManager.selectAll().get(dbManager.selectAll().size()-1).getInputWeight() - (float) dbManager.selectAll().get(0).getInputWeight()) * -1) + " lbs");
+            // update total weight lost
+            TextView totalWeightLostText = (TextView) findViewById(R.id.label_total_weight_loss_number);
+            totalWeightLostText.setText((((float) dbManager.selectAll().get(dbManager.selectAll().size() - 1).getInputWeight() - (float) dbManager.selectAll().get(0).getInputWeight()) * -1) + " lbs");
+        } catch (Exception e) {
+            System.out.println("NO DB Exists");
+        }
     }
 
     /**
