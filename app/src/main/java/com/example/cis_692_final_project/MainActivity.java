@@ -3,17 +3,11 @@ package com.example.cis_692_final_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.cis_692_final_project.data.DatabaseManager;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseManager dbManager;
@@ -29,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        updateView();
+//        updateView();
+
     }
 
     @Override
@@ -41,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
     public void updateView() {
 
         try {
-            System.out.println(dbManager.selectAll());
+            System.out.println(dbManager.selectAllEntries());
 
             // update to grab the latest entry
             TextView currentWeightText = (TextView) findViewById(R.id.label_current_weight_number);
-            currentWeightText.setText(String.valueOf((float) dbManager.selectAll().get(dbManager.selectAll().size() - 1).getInputWeight()).trim() + " lbs");
+            currentWeightText.setText(String.valueOf((float) dbManager.selectAllEntries().get(dbManager.selectAllEntries().size() - 1).getInputWeight()).trim() + " lbs");
 
             // update the BMI calculation - todo: write this logic
 //        TextView bmiCalcText = (TextView) findViewById(R.id.label_main_body_mass_index_number);
@@ -53,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
             // update the avg weekly loss - todo: work on logic for avg weekly weight loss
             TextView avgWeightLossTotalText = (TextView) findViewById(R.id.label_avg_weekly_weight_loss_number);
-            avgWeightLossTotalText.setText(dbManager.getAverage() + " lbs");
+            avgWeightLossTotalText.setText(dbManager.getAverageWeightLossPerWeek() + " lbs");
 
             // update total weight lost
             TextView totalWeightLostText = (TextView) findViewById(R.id.label_total_weight_loss_number);
-            totalWeightLostText.setText((((float) dbManager.selectAll().get(dbManager.selectAll().size() - 1).getInputWeight() - (float) dbManager.selectAll().get(0).getInputWeight()) * -1) + " lbs");
+            totalWeightLostText.setText((((float) dbManager.selectAllEntries().get(dbManager.selectAllEntries().size() - 1).getInputWeight() - (float) dbManager.selectAllEntries().get(0).getInputWeight()) * -1) + " lbs");
         } catch (Exception e) {
             System.out.println("NO DB Exists");
         }

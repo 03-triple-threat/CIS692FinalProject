@@ -58,7 +58,7 @@ public class NewEntryActivity extends AppCompatActivity {
         try {
             float weightEntry = Float.parseFloat(weightEntryNumber);
             NewEntry entry = new NewEntry(0, weightEntry, weightEntryDate);
-            dbManager.insert(entry);
+            dbManager.insertWeightEntry(entry);
             Toast.makeText(this, "Entry Added", Toast.LENGTH_SHORT).show();
 
             /**
@@ -70,6 +70,7 @@ public class NewEntryActivity extends AppCompatActivity {
             cancelButtonText.setTextSize(12);
         } catch (Exception e) {
             Toast.makeText(this, "Entry NOT Added", Toast.LENGTH_LONG).show();
+            System.out.println(e);
         }
 
         //clears input data

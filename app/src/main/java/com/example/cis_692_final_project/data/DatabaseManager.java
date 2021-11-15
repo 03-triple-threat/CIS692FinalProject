@@ -10,23 +10,39 @@ import java.util.ArrayList;
 
 public class DatabaseManager extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "weightEntryDB";
     private static final String TABLE_ENTRIES = "entries";
     private static final String ID = "id";
     private static final String WEIGHT_ENTRY_INPUT = "weight_entry_input";
     private static final String WEIGHT_ENTRY_INPUT_DATE = "weight_entry_input_date";
 
+    private static final String TABLE_PERSON = "person";
+    private static final String COLUMN_START_WEIGHT = "start_weight";
+    private static final String COLUMN_START_DATE = "start_date";
+    private static final String COLUMN_TARGET_WEIGHT = "target_weight";
+    private static final String COLUMN_TARGET_DATE = "target_date";
+    private static final String COLUMN_GENDER = "gender";
+    private static final String COLUMN_HEIGHT = "height";
+
     public DatabaseManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public void onCreate(SQLiteDatabase db) {
-        String sqlCreate = "create table " + TABLE_ENTRIES + "( " + ID;
-        sqlCreate += " integer primary key autoincrement, " + WEIGHT_ENTRY_INPUT;
-        sqlCreate += " text, " + WEIGHT_ENTRY_INPUT_DATE + " text )";
+        String sqlCreateEntiresTable = "create table " + TABLE_ENTRIES + "( " + ID;
+        sqlCreateEntiresTable += " integer primary key autoincrement, " + WEIGHT_ENTRY_INPUT;
+        sqlCreateEntiresTable += " text, " + WEIGHT_ENTRY_INPUT_DATE + " text )";
 
-        db.execSQL(sqlCreate);
+        db.execSQL(sqlCreateEntiresTable);
+
+        String sqlCreatePersonTable = "create table " + TABLE_PERSON + "(" + ID;
+        sqlCreatePersonTable += " integer primary key autoincrement, " + COLUMN_START_WEIGHT;
+        sqlCreatePersonTable += " text, " + COLUMN_START_DATE + " text, " + COLUMN_TARGET_WEIGHT;
+        sqlCreatePersonTable += " text, " + COLUMN_TARGET_DATE + " text, " + COLUMN_GENDER;
+        sqlCreatePersonTable += " text, " + COLUMN_HEIGHT + " text )";
+
+        db.execSQL(sqlCreatePersonTable);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -34,7 +50,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insert(NewEntry newEntry) {
+    public void insertWeightEntry(NewEntry newEntry) {
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlInsert = "insert into " + TABLE_ENTRIES;
         sqlInsert += " values( null, '" + newEntry.getInputWeight();
@@ -53,7 +69,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<NewEntry> selectAll() {
+    public ArrayList<NewEntry> selectAllEntries() {
         String sqlQuery = "select * from " + TABLE_ENTRIES;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -85,7 +101,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return entry;
     }
 
-    public String getAverage() {
+    public String getAverageWeightLossPerWeek() {
         String sqlQuery = "select avg(" + WEIGHT_ENTRY_INPUT + ") from " + TABLE_ENTRIES;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -99,6 +115,36 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
         db.close();
 
-        return String.valueOf(avg);
+        return String.valueOf(avg/4);
+    }
+
+    public void insertPerson (Person person) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlInsert = "insert into " + TABLE_PERSON;
+        sqlInsert += " values( null, '" + person.getStartWeight();
+        sqlInsert += "', '" + person.getStartDate();
+        sqlInsert += "', '" + person.getTargetWeight();
+        sqlInsert += "', '" + person.getTargetDate();
+        sqlInsert += "', '" + person.getGender();
+        sqlInsert += "', '" + person.getHeight() + "' )";
+
+        db.execSQL(sqlInsert);
+        db.close();
+    }
+
+    public Person selectPersonById(int id) {
+        String sqlQuery = "select * from " + TABLE_PERSON;
+        sqlQuery += " where " + ID + " = " + id;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        Person person = null;
+        if (cursor.moveToFirst())
+            person = new Person(Integer.parseInt(cursor.getString(0)),
+                    cursor.getFloat(1), cursor.getString(2),
+                    cursor.getFloat(3), cursor.getString(4),
+                    cursor.getString(5), cursor.getString(6));
+        return person;
     }
 }
