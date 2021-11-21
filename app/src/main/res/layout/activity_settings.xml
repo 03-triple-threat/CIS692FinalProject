@@ -30,7 +30,7 @@
         android:layout_toRightOf="@id/label_settings_current_weight"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/settings_starting_weight_input_hint"
+        android:hint="@string/settings_starting_weight_input_hint"
         android:inputType="numberDecimal"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
@@ -51,11 +51,14 @@
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
-    <!--  Enter Starting Date Input DONE-->
     <EditText
         android:id="@+id/input_settings_starting_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_below="@id/input_settings_current_weight"
         android:layout_toRightOf="@id/label_settings_starting_date"
         android:layout_alignRight="@id/input_settings_current_weight"
@@ -63,10 +66,8 @@
         android:layout_marginTop="20dp"
         android:padding="10dp"
         android:gravity="center"
-        android:hint="@string/settings_starting_date_input_hint"
-        android:inputType="date"
         android:textSize="20sp"
-        tools:ignore="MissingConstraints" />
+        android:hint="@string/settings_starting_date_input_hint"/>
 
     <!--  Enter Target Weight Label DONE -->
     <TextView
@@ -95,7 +96,7 @@
         android:layout_marginTop="20dp"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/settings_target_weight_input_hint"
+        android:hint="@string/settings_target_weight_input_hint"
         android:inputType="numberDecimal"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
@@ -112,15 +113,19 @@
         android:background="@color/purple_200"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/settings_starting_weight_input_hint"
+        android:text="@string/settings_target_date_input_hint"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
-    <!--  Enter Target Date Input DONE -->
+    <!-- Enter Target Date Input DONE -->
     <EditText
         android:id="@+id/input_settings_target_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_below="@id/input_settings_target_weight"
         android:layout_alignRight="@id/input_settings_current_weight"
         android:layout_alignLeft="@id/input_settings_current_weight"
@@ -128,10 +133,8 @@
         android:layout_marginTop="20dp"
         android:padding="10dp"
         android:gravity="center"
-        android:text="@string/settings_target_date_input_hint"
-        android:inputType="date"
         android:textSize="20sp"
-        tools:ignore="MissingConstraints" />
+        android:hint="@string/settings_target_date_input_hint"/>
 
     <!--  Enter Gender Label DONE -->
     <TextView
@@ -226,7 +229,8 @@
         android:paddingRight="5dp"
         android:background="@color/purple_200"
         android:textSize="20sp"
-        android:text="@string/settings_save_settings_button"/>
+        android:text="@string/settings_save_settings_button"
+        android:onClick="addSettings"/>
 
     <!--  Discard Settings Button DONE -->
     <Button
@@ -241,7 +245,8 @@
         android:paddingLeft="5dp"
         android:background="@color/purple_200"
         android:textSize="15sp"
-        android:text="@string/settings_discard_settings_button"/>
+        android:text="@string/settings_home_screen_settings_button"
+        android:onClick="goToMain"/>
 
 
 </RelativeLayout>

@@ -2,37 +2,85 @@ package com.example.cis_692_final_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.cis_692_final_project.data.DatabaseManager;
 import com.example.cis_692_final_project.data.Person;
 
+import java.util.Calendar;
+
+
 public class SettingsActivity extends AppCompatActivity {
     private DatabaseManager dbManager;
+    DatePickerDialog dateSelector;
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        EditText startingDateInput = (EditText) findViewById(R.id.input_settings_starting_date);
+        startingDateInput.setInputType(InputType.TYPE_NULL);
+
+        startingDateInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                dateSelector = new DatePickerDialog(SettingsActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        startingDateInput.setText(month + "/" + day + "/" + year);
+                    }
+                }, year, month, day);
+                dateSelector.show();
+            }
+        });
+
+        EditText targetDateInput = (EditText) findViewById(R.id.input_settings_target_date);
+        targetDateInput.setInputType(InputType.TYPE_NULL);
+
+        targetDateInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                dateSelector = new DatePickerDialog(SettingsActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        targetDateInput.setText(month + "/" + day + "/" + year);
+                    }
+                }, year, month, day);
+                dateSelector.show();
+            }
+        });
     }
 
     /**
      * Method to navigate to the Main (Summary) Screen
-     *
+     * <p>
      * TODO - connect with Discard Setting button
      */
-    public void goToMain (View v) {
+    public void goToMain(View v) {
         this.finish();
     }
 
     /**
      * Method to navigate to the New Entry Screen
      */
-    public void enterData (View v) {
+    public void enterData(View v) {
         Intent myIntent = new Intent(this, NewEntryActivity.class);
         this.startActivity(myIntent);
     }
@@ -40,8 +88,8 @@ public class SettingsActivity extends AppCompatActivity {
     /**
      * Method to navigate to the History Screen
      */
-    public void viewHistory (View v) {
-        Intent myIntent = new Intent( this, HistoryActivity.class);
+    public void viewHistory(View v) {
+        Intent myIntent = new Intent(this, HistoryActivity.class);
         this.startActivity(myIntent);
     }
 
@@ -73,7 +121,7 @@ public class SettingsActivity extends AppCompatActivity {
             Toast.makeText(this, "Settings Saved", Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
-            Toast.makeText(this,"Settings NOT Saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Settings NOT Saved", Toast.LENGTH_LONG).show();
         }
     }
 }
